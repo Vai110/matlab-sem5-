@@ -1,0 +1,25 @@
+t=0:0.2:2*pi; 
+x=sin(t); 
+ln=length(x); 
+y=triang(ln); 
+ 
+% TDM Multiplexed signal 
+mux=[]; 
+for i=1:ln 
+    mux=[mux x(i) y(i)]; 
+end 
+ 
+% TDM Demultiplexed signal 
+demux=reshape(mux,2,ln); 
+for i=1:ln 
+    s(i)=demux(1,i); 
+    t(i)=demux(2,i); 
+end 
+  
+subplot(3,3,1);plot(x); 
+subplot(3,3,2);plot(y); 
+subplot(3,3,3);stem(x); 
+subplot(3,3,4);stem(y); 
+subplot(3,3,5);stem(mux); 
+subplot(3,3,6);plot(s); 
+subplot(3,3,7);plot(t); 
