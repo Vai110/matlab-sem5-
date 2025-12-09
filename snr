@@ -1,0 +1,13 @@
+length=linspace(-2*pi,2*pi) 
+message=sin(length) 
+noise=0.5*rand(size(message)) 
+plot(message) 
+title('message signal') 
+xlabel('time') 
+ylabel('amplitude') 
+figure 
+plot(noise) 
+title('noise signal') 
+xlabel('time') 
+ylabel('amplitude') 
+snr_22=snr(message,noise)
