@@ -1,0 +1,29 @@
+clc 
+clear all 
+close all 
+Fs = 8000; 
+Fc = 100; 
+t = linspace(0,1,10000); 
+x = sin(2*pi*10*t);
+ 
+dev = 50; 
+y = fmmod(x,Fc,Fs,dev); 
+z = fmdemod(y,Fc,Fs,dev); 
+ 
+ 
+subplot(411),plot(t,x);
+xlabel('time(sec)'); 
+ylabel('amplitude in volts(V)'); 
+title('MODULATING SIGNAL'); 
+subplot(412),plot(t,sin(2*pi*Fc*t)) 
+xlabel('time(sec)'); 
+ylabel('amplitude in volts(V)'); 
+title('CARRIER SIGNAL'); 
+subplot(413),plot(t,y) 
+xlabel('time(sec)'); 
+ylabel('amplitude in volts(V)'); 
+title('FREQUENCY MODULATED SIGNAL'); 
+subplot(414),plot(t,z) 
+xlabel('time(sec)'); 
+ylabel('amplitude in volts(V)'); 
+title('DEMODULATED SIGNAL');
